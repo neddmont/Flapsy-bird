@@ -45,7 +45,7 @@ container.addEventListener('animationiteration', () => {
 }); 
 
 
-setInterval(function() {
+  setInterval(function () {
   var characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
   if (jumping === 0) {
     character.style.top = characterTop + 3  + "px";
@@ -56,11 +56,8 @@ setInterval(function() {
   let holeLeft = parseInt(window.getComputedStyle(hole).getPropertyValue("left"));
   
   
-  if (((characterTop >= 480) || (characterTop <= 2)) || 
-      ((holeLeft < 20) && (holeLeft > -50) && (characterTop < holeTop)) || ((holeLeft < 20) && (holeLeft > -50) && (characterTop > holeBottom)) 
-    ) {
-    alert("Game over. Score: " + (holeTop ) + (characterTop) + (holeLeft) + (holeBottom)); 
-    clearInterval();
+  if ( ((characterTop >= 480) || (characterTop <= 2)) || ( ((holeLeft <= 70) && (holeLeft >= 20 )) && ((characterTop <= holeTop) || (characterTop >= holeBottom)) ) ) {
+    alert("Game over. Score: " + (counter - 1 )); 
     character.style.top = 100 + "px";
     rotation = 0;
     character.style.rotate = rotation + "rad"; 
