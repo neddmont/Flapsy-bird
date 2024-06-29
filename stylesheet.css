@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#game {
+    width: 400px;
+    height: 500px;
+    border: 1px solid #4a1b1b;
+    margin: auto;
+    overflow: hidden;
+    background-image: url(backgroung.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.container {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    animation: block1 2s infinite linear;
+    position: absolute;
+
+}
+
+.block1 {
+    width: 100%;
+    background: rgb(9, 19, 26);
+}
+@keyframes block1  {
+    0%{
+        transform: translateX(500px);
+    }
+    100% {
+        transform: translateX(-50px);
+    }
+}
+
+.block2 {
+    width: 100%;
+    background: rgb(9, 19, 26);
+}
+
+#hole {
+    opacity: 100%;
+    animation: hole 2s infinite linear;
+
+}
+
+@keyframes hole  {
+    0%{
+       left: 500px;
+    }
+    100% {
+        left: -50px;
+        
+    }
+}
+
+
+
+#character {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    rotate: 0rad;
+}
+
+
+
+
