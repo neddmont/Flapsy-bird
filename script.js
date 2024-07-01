@@ -3,6 +3,7 @@ const container = document.querySelector('.container')
 var block2 = document.querySelector(".block2");
 var character = document.getElementById("character");
 var hole = document.getElementById("hole");
+const button = document.getElementById("Start");
 var jumping = 0;
 var counter = 0;
 var gravity = 0.5; 
@@ -11,6 +12,15 @@ const FALL_ROTATION_SPEED = -0.1;
 const MAX_ROTATION = 30 * Math.PI / 180; 
 const MIN_ROTATION = -30 * Math.PI / 180;
 let rotation = 0; 
+
+
+button.addEventListener("click" ,function () {
+  button.style.display = "none";
+  startGame();
+});
+
+
+function startGame() {
 
 function updateRotation() {
   if (jumping) {
@@ -57,13 +67,15 @@ container.addEventListener('animationiteration', () => {
   
   
   if ( ((characterTop >= 480) || (characterTop <= 2)) || ( ((holeLeft <= 70) && (holeLeft >= 20 )) && ((characterTop <= holeTop) || (characterTop >= holeBottom)) ) ) {
-    alert("Game over. Score: " + (counter - 1 )); 
+    alert("Game over. Score: " + (counter - 1 ));
+    clearInterval();
     character.style.top = 100 + "px";
     rotation = 0;
     character.style.rotate = rotation + "rad"; 
     counter = 0;
   }
 }, 10);
+
 
 document.body.onkeydown = function(e) {
   if (e.key == " " ||
@@ -93,6 +105,8 @@ function jump() {
     jumpCount++;
   }, 10);
 }
+
+} ;
 
 
 
